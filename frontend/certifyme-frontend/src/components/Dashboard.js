@@ -11,18 +11,18 @@ const Dashboard = () => {
   const token = localStorage.getItem("token");
   const userName = localStorage.getItem("userName"); // display logged-in name
 
-  // Fetch certificates from backend
   const fetchCertificates = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/api/certificates", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json();
-      setCertificates(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  try {
+    const res = await fetch("http://localhost:5000/api/certificates", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const data = await res.json();
+    setCertificates(Array.isArray(data) ? data : []); // ensure it's an array
+  } catch (err) {
+    console.error(err);
+    setCertificates([]); // fallback to empty array
+  }
+};
 
   useEffect(() => {
     if (token) fetchCertificates();
@@ -100,22 +100,23 @@ const Dashboard = () => {
 
       <h3>Your Certificates</h3>
       <div className="certificate-list">
-        {certificates.length === 0 ? (
-          <p>No certificates uploaded yet.</p>
-        ) : (
-          certificates.map((cert) => (
-            <div key={cert._id} className="certificate-item">
-              <p><strong>{cert.title}</strong> ({cert.category})</p>
-              {cert.image && (
-                <img
-                  src={`http://localhost:5000/${cert.image.replace("\\", "/")}`}
-                  alt={cert.title}
-                />
-              )}
-              <button onClick={() => handleDelete(cert._id)}>Delete</button>
-            </div>
-          ))
-        )}
+        {certificates?.length === 0 ? (
+  <p>No certificates uploaded yet.</p>
+) : (
+  certificates?.map((cert) => (
+    <div key={cert._id} className="certificate-item">
+      <p><strong>{cert.title}</strong> ({cert.category})</p>
+      {cert.image && (
+        <img
+          src={`http://localhost:5000/${cert.image.replace("\\", "/")}`}
+          alt={cert.title}
+        />
+      )}
+      <button onClick={() => handleDelete(cert._id)}>Delete</button>
+    </div>
+  ))
+)}
+
       </div>
     </div>
   );
