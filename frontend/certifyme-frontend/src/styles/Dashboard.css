@@ -1,0 +1,102 @@
+/* Dashboard.css - Modern & Soft Palette */
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 35px;
+  background-color: #fef6f5; /* soft peachy background */
+  border-radius: 15px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.dashboard-container h2 {
+  color: #6c5ce7; /* soft violet */
+  margin-bottom: 25px;
+}
+
+.upload-form input,
+.upload-form select,
+.upload-form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #dcd7f7; /* soft lavender */
+  background-color: #fffaf8; /* soft input background */
+  transition: all 0.3s ease;
+}
+
+.upload-form input:focus,
+.upload-form select:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+  outline: none;
+}
+
+.upload-form button {
+  background-color: #ff9f7f; /* soft orange */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.upload-form button:hover {
+  background-color: #ff6f61; /* deeper coral */
+  transform: translateY(-1px);
+}
+
+.certificate-list {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.certificate-item {
+  border: 1px solid #dcd7f7;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #fffaf8;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.certificate-item img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.certificate-item img:hover {
+  transform: scale(1.05);
+}
+
+.certificate-item button {
+  background-color: #ff9f7f; /* soft orange/red */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.certificate-item button:hover {
+  background-color: #ff6f61; /* slightly deeper coral */
+}
+
+.message {
+  text-align: center;
+  margin-top: 15px;
+  color: #22c55e; /* soft green for success */
+  font-weight: bold;
+}
